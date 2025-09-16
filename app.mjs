@@ -1,9 +1,10 @@
-import 'dotenv/config'
+import dotenv from 'dotenv';
 import express from 'express'
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { MongoClient, ServerApiVersion } from 'mongodb';
 
+dotenv.config();
 const app = express()
 const PORT = process.env.PORT || 3000; 
 const __filename = fileURLToPath(import.meta.url);
@@ -14,9 +15,12 @@ app.use(express.static(join(__dirname, 'public')));
 app.use(express.json()); 
 
 // const { MongoClient, ServerApiVersion } = require('mongodb');
+// require('dotenv').config();
+// const uri = "mongodb+srv://josh-bradley:tRHYvJMZRW4KW1Zg@cluster0.l6pmdbw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
 const uri = process.env.MONGO_URI;
 
-console.log('are you getting this')
+
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
