@@ -14,9 +14,7 @@ app.use(express.static(join(__dirname, 'public')));
 
 app.use(express.json()); 
 
-// const { MongoClient, ServerApiVersion } = require('mongodb');
-// require('dotenv').config();
-// const uri = "mongodb+srv://josh-bradley:tRHYvJMZRW4KW1Zg@cluster0.l6pmdbw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
 
 const uri = process.env.MONGO_URI;
 
